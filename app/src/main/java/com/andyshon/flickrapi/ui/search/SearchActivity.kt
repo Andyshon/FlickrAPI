@@ -1,9 +1,10 @@
-package com.andyshon.flickrapi
+package com.andyshon.flickrapi.ui.search
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.andyshon.flickrapi.R
 
-class MainActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
