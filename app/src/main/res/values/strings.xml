@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FlickrAPI</string>
+
+    <!-- DIALOG MESSAGES -->
+    <string name="dialog_action_loading">Loading…</string>
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_action_cancel">Cancel</string>
 </resources>

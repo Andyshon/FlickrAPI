@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircularProgressView">
+        <attr name="cpv_progressColor" format="color"/>
+        <attr name="cpv_border_width" format="dimension"/>
+        <attr name="cpv_height_accent" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressButtonView">
+        <attr name="pbv_progressColor" format="color" />
+        <attr name="pbv_progressSize" format="dimension" />
+        <attr name="pbv_progressBorderWidth" format="dimension" />
+        <attr name="pbv_progressPadding" format="dimension" />
+    </declare-styleable>
+
+</resources>
