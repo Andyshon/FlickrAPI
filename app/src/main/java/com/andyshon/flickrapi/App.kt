@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.facebook.stetho.Stetho
 import timber.log.Timber
+import io.realm.Realm
+import io.realm.RealmConfiguration
 
 class App : Application() {
 
@@ -25,5 +27,13 @@ class App : Application() {
             Timber.plant(Timber.DebugTree())
         }
 
+        initRealm()
+
+    }
+
+    private fun initRealm() {
+        Realm.init(this)
+        val config = RealmConfiguration.Builder().build()
+        Realm.setDefaultConfiguration(config)
     }
 }

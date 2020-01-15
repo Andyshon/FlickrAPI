@@ -4,6 +4,7 @@ import com.andyshon.flickrapi.R
 import com.andyshon.flickrapi.ui.widget.dialog.MessageDialog
 import com.andyshon.flickrapi.ui.widget.dialog.ProgressDialog
 import io.reactivex.disposables.CompositeDisposable
+import io.realm.Realm
 import java.lang.ref.WeakReference
 
 class PresentationDelegateImpl(provider: PresentationComponentProvider) : PresentationDelegate {
@@ -15,12 +16,21 @@ class PresentationDelegateImpl(provider: PresentationComponentProvider) : Presen
         CompositeDisposable()
     }
 
+    private val mRealm by lazy {
+        Realm.getDefaultInstance()
+    }
+
     private val progressDialog by lazy {
         ProgressDialog.newInstance(provider.provideActivity().getString(R.string.dialog_action_loading))
     }
 
+    override fun getRealm(): Realm {
+        return mRealm
+    }
+
     override fun onDestroy() {
         disposable.clear()
+        mRealm.close()
     }
 
     override fun showMessage(messageRes: Int, tag: Any?) {

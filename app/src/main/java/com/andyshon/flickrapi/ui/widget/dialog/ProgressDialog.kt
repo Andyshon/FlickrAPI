@@ -15,18 +15,12 @@ import com.andyshon.flickrapi.R
 
 class ProgressDialog : DialogFragment() {
     private var progressTxt: TextView? = null
-    private var description: String? = null
 
     val isShowing: Boolean
         get() = dialog != null && dialog?.isShowing?:false
 
     fun show(manager: FragmentManager) {
         show(manager, this.javaClass.name)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        description = arguments?.getString(KEY_DESCRIPTION)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -41,7 +35,6 @@ class ProgressDialog : DialogFragment() {
         super.onActivityCreated(savedInstanceState)
         val window = dialog?.window ?: return
         window.setLayout(MATCH_PARENT, MATCH_PARENT)
-//        window.attributes.windowAnimations = R.style.DialogAnimationAlphaFast
         window.setBackgroundDrawable(
             ContextCompat.getDrawable(
                 context!!,
@@ -55,10 +48,7 @@ class ProgressDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.dialog_progress, container, false)
-        progressTxt = rootView.findViewById(R.id.progressDialogText)
-//        progressTxt!!.text = description
-        return rootView
+        return inflater.inflate(R.layout.dialog_progress, container, false)
     }
 
     fun setDescription(description: String) {
@@ -67,7 +57,7 @@ class ProgressDialog : DialogFragment() {
 
     companion object {
 
-        private val KEY_DESCRIPTION = "KEY.DESCRIPTION"
+        private const val KEY_DESCRIPTION = "KEY.DESCRIPTION"
 
         fun newInstance(description: String): ProgressDialog {
             val fragment = ProgressDialog()

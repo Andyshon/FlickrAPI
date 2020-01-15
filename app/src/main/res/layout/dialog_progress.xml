@@ -9,24 +9,10 @@
 
     <com.andyshon.flickrapi.ui.widget.circular.CircularProgressView
         android:id="@+id/progressDialogView"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_width_small"
         android:layout_centerInParent="true"
-        app:cpv_border_width="4dp"
-        app:cpv_progressColor="@color/colorAccent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/progressDialogText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progressDialogView"
-        android:gravity="center"
-        android:textSize="@dimen/font_size_very_big"
-        android:paddingBottom="8dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="8dp"
-        android:textColor="@color/colorAccent"
-        tools:text="Loading" />
+        app:cpv_border_width="@dimen/margin_tiny"
+        app:cpv_progressColor="@color/colorPrimaryDark" />
 
 </RelativeLayout>

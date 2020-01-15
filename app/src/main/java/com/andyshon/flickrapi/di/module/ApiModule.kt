@@ -1,6 +1,7 @@
 package com.andyshon.flickrapi.di.module
 
 import com.andyshon.flickrapi.BuildConfig
+import com.andyshon.flickrapi.data.model.photos.PhotosService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -42,6 +43,12 @@ class ApiModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
                 .build()
         }
+
+        @Provides
+        @JvmStatic
+        @Singleton
+        fun providePhotosService(@Named("basic") retrofit: Retrofit): PhotosService =
+            retrofit.create(PhotosService::class.java)
 
     }
 }

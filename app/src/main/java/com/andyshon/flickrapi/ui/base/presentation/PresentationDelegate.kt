@@ -2,6 +2,7 @@ package com.andyshon.flickrapi.ui.base.presentation
 
 import androidx.annotation.StringRes
 import io.reactivex.disposables.CompositeDisposable
+import io.realm.Realm
 
 interface PresentationDelegate {
 
@@ -16,6 +17,8 @@ interface PresentationDelegate {
     fun hideProgress(tag: Any? = null)
 
     fun getDestroyDisposable(): CompositeDisposable
+
+    fun getRealm(): Realm
 
     class Factory {
 

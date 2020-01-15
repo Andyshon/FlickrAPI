@@ -1,5 +1,6 @@
 package com.andyshon.flickrapi.di.module
 
+import com.andyshon.flickrapi.App
 import com.andyshon.flickrapi.BuildConfig
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.github.simonpercic.oklog3.OkLogInterceptor
@@ -38,6 +39,14 @@ class NetworkModule {
             .serializeNulls()
             .create()
 
+        @Provides
+        @Singleton
+        @JvmStatic
+        @Named("cache")
+        fun provideHttpCache(app: App): Cache {
+            val cacheSize = 10 * 1024 * 1024
+            return Cache(app.cacheDir, cacheSize.toLong())
+        }
 
         @Provides
         @Singleton
